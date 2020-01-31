@@ -64,6 +64,9 @@ RUN apt-get update \
 COPY --from=ffmpeg /ffmpeg /ffprobe /usr/local/bin/
 COPY --from=ffmpeg /ffmpeg /ffprobe /usr/local/bin/
 
+## Essentia
+RUN apt-get update && apt-get install -y python3-pip
+
 # make sure all binaries work
 # @see https://github.com/wader/ydls/blob/master/Dockerfile
 # RUN \
@@ -72,3 +75,6 @@ COPY --from=ffmpeg /ffmpeg /ffprobe /usr/local/bin/
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
+
+RUN mkdir -p /workspace
+WORKDIR /workspace

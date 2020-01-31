@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "bash": "npm run bash:start",
+    "bash:start": "docker-compose -p atpls-audio run --rm bash",
+    "server": "npm run server:start",
+    "server:start": "docker-compose -p atpls-audio run --rm  --service-ports server"
+  }
+}
